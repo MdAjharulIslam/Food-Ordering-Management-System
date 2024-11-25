@@ -833,6 +833,84 @@ int seafood()
     }
 }
 
+
+
+int soup()
+{
+    while (true)
+    {
+
+        cout << "\t\t\t\t\t     *------SOUPS------*" << endl;
+        cout << "\t\t\t\tPress '1' Chicken Corn Soup...............BDT: 200" << endl;
+        cout << "\t\t\t\tPress '2' Cream of Mushroom Soup..........BDT: 250" << endl;
+        cout << "\t\t\t\tPress '3' Tomato Soup.....................BDT: 180" << endl;
+        cout << "\t\t\t\tPress '4' Lentil Soup.....................BDT: 220" << endl;
+        cout << "\t\t\t\tPress 'Backspace' To Go Back To Menu\n"
+             << endl;
+        cout << "Please select any option: ";
+
+        ch = getch();
+        a = ch;
+        cout << endl;
+
+        if (a >= 49 && a <= 52)
+        {
+            cout << "How much quantity do you want? ";
+            cin >> qnty;
+            cout << endl;
+
+            switch (a)
+            {
+            case 49:
+                cout << "You entered " << qnty << " Chicken Corn Soup(s)" << endl;
+                sum = 200 * qnty;
+                break;
+            case 50:
+                cout << "You entered " << qnty << " Cream of Mushroom Soup(s)" << endl;
+                sum = 250 * qnty;
+                break;
+            case 51:
+                cout << "You entered " << qnty << " Tomato Soup(s)" << endl;
+                sum = 180 * qnty;
+                break;
+            case 52:
+                cout << "You entered " << qnty << " Lentil Soup(s)" << endl;
+                sum = 220 * qnty;
+                break;
+            }
+
+            cout << "The bill is: " << sum << "\t\t\t\t\t\tDate & Time" << endl;
+            displayDateTime();
+
+            cout << "If you want to go back to 'SOUPS' press 'Backspace' or any other key to continue" << endl;
+            ch = getch();
+
+            if (ch == 8)
+            {
+                system("cls");
+                return 0;
+            }
+            else
+            {
+                cout << "\nYou entered the wrong keyword...!" << endl;
+            }
+        }
+        else if (a == 8)
+        {
+            system("cls");
+            return a;
+        }
+        else
+        {
+
+            system("cls");
+            cout << "\n\t\t\t\tInvalid Input..!!! Please Enter a value between 1 to 4\n\n";
+        }
+    }
+}
+
+
+
 int main()
 {
 
@@ -861,12 +939,13 @@ int main()
         cout << "Press '8' DESSERTS" << endl;
         cout << "Press '9' SNACKS" << endl;
         cout << "Press '10' SEAFOOD" << endl;
+        cout << "Press '11' SOUPS" << endl;
         cout << "\nPlease enter your choice: ";
 
         cin >> choice;
         cout << endl;
 
-        if (choice >= 1 && choice <= 10)
+        if (choice >= 1 && choice <= 11)
         {
             switch (choice)
             {
@@ -899,6 +978,10 @@ int main()
                 break;
             case 10:
                 seafood();
+                break;
+
+            case 11:
+                soup();
                 break;
             }
         }
